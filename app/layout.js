@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./resources/globals.css";
 
 export const metadata = {
   title: "Places to Stay",
