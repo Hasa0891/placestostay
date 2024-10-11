@@ -1,7 +1,7 @@
 "use server";
 
 import { firebase } from "@/app/lib/utils/firebase";
-import { collection,addDoc,setDoc, doc} from "firebase/firestore";
+import { collection,addDoc,setDoc, doc, deleteDoc} from "firebase/firestore";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -76,6 +76,16 @@ export async function editPlace(formState,formData){
       error : true,
       message : "Error Occured"
     }
+  }
+  revalidatePath("/dashboard/admin/places");
+  redirect("/dashboard/admin/places");
+}
+
+export async function deletePlace(id){
+  try{
+    await deleteDoc(doc(firebase,"place",id));
+  }catch(err){
+    console.log(err);
   }
   revalidatePath("/dashboard/admin/places");
   redirect("/dashboard/admin/places");
