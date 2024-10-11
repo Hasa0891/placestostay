@@ -2,6 +2,7 @@ import "./resources/globals.css";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { verifyToken } from "@/app/lib/utils/jwt";
+import LogoutButton from "@/app/ui/AuthComponents/LogoutButton";
 
 export const metadata = {
   title: "Places to Stay",
@@ -43,9 +44,7 @@ export default async function RootLayout({ children }) {
                       href={`/dashboard/admin/bookings`}
                       className="p-2 bg-white rounded-md mt-2"
                     >Bookings</Link>
-                    <button
-                      className="p-2 bg-white rounded-md mt-2"
-                    >Logout</button>
+                    <LogoutButton/>
                   </div>
                 )
               }
@@ -60,9 +59,7 @@ export default async function RootLayout({ children }) {
                       href={`/dashboard/traveler`}
                       className="p-2 bg-white rounded-md mt-2"
                     >Search</Link>
-                    <button
-                      className="p-2 bg-white rounded-md mt-2"
-                    >Logout</button>
+                    <LogoutButton/>
                   </div>
                 )
               }
