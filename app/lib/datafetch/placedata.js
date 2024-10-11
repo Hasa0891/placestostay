@@ -41,7 +41,7 @@ export async function fetchAllCities(){
 
 export async function searchPlaces(type,location){
   let result;
-  if(location==="ANY"){
+  if(location==="any"){
     result = await getDocs(query(collection(firebase,"place"), where("type","==",type)));
   }else{
     result = await getDocs(query(collection(firebase,"place"), where("type","==",type), where("city","==",location)));
